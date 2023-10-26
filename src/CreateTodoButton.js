@@ -1,6 +1,6 @@
 function CreateTodoButton() {
     return (
-      <input type="button" value="New TODO"/>
+      <button>+</button>
     )
   }
 
