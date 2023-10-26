@@ -5,6 +5,8 @@
   --font-family: 'Montserrat', sans-serif;
   --font-size-title: 24px;
   --font-size-regular: 18px;
+  --font-weight-bold: 700;
+  --font-weigth-regular: 400; 
 
   /* Colors */
   --color-black-1: #1E1E1F;
