@@ -7,7 +7,11 @@
     position: relative;
 }
 
-.TodoItem p {
+.TodoItem:last-child {
+    margin-bottom: 0;
+}
+
+.TodoItem-text {
     flex-grow: 1;
     color: var(--color-black-font);
     font-size: var(--font-size-regular);
@@ -16,15 +20,28 @@
     line-height: normal;
 }
 
-.TodoTick {
+.TodoItem-Icon__check {
     display: grid;
     place-content: center;
     padding: 0 22px 0 10px;
 }
 
-.TodoX {
+.TodoItem-Icon__delete {
     flex-basis: 12px;
     position: absolute;
     right: 10px;
     top: -10px;
+}
+
+.TodoItem-Icon__delete:hover {
+    color: var(--color-red);
+    cursor: pointer;
+}
+
+.TodoItem-Icon__check--completed {
+    color: var(--color-green);
+}
+
+.TodoItem-text--completed {
+    text-decoration: line-through;
 }

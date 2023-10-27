@@ -12,4 +12,12 @@
   padding: 0;
   position: sticky;
   width: 64px;
+  transform: rotate(0);
+  transition: .3s ease;
+}
+
+
+.CreateTodoButton:hover {
+  transform: rotate(90deg);
+  transition: .3s ease;
 }
