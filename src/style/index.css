@@ -19,9 +19,13 @@
   --color-white: #FAFAFA;
   --color-ligth-gray: #F2F4F5;
 
+  /* borders */
+  --border-radius: 2px;
+
   /* Color general element */
   --color-background: var(--color-ligth-gray);
-  --box-shadow-general: 1px 2px 50px 5px var(--color-gray-shadow);
+  --box-shadow-general: 1px 2px 20px 0px var(--color-gray-shadow);
+  --color-black-font: var(var(--color-black-1);)
 }
 
 body {

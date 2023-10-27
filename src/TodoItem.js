@@ -1,9 +1,11 @@
+import './style/TodoItem.css';
+
 function TodoItem(props) {
   return (
-    <li>
-      <span>V</span>
+    <li className='TodoItem'>
+      <span className='TodoTick'>V</span>
       <p>{props.text}</p>
-      <span>X</span>
+      <span className='TodoX'>X</span>
     </li>
   );
 }

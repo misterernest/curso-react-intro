@@ -1,6 +1,7 @@
 .TodoSearch {
     height: 64px;
     border: 2px solid;
+    border-radius: var(--border-radius);
     box-sizing: border-box;
     box-shadow: var(--box-shadow-general);
     -webkit-box-shadow: var(--box-shadow-general);
