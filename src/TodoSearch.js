@@ -7,6 +7,7 @@ function TodoSearch({
 }) {
   return (
     <input
+      id='todoSearch'
       placeholder="Cortar cebolla"
       className='TodoSearch'
       value={searchValue}
