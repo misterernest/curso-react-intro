@@ -5,19 +5,31 @@ import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 
-const defaultTodos = [
-  {text: 'Cortar cebolla', completed: true},
-  {text: 'Tomar el curso de Intro a React.js', completed: false},
-  {text: 'Llorar con la llorona', completed: false},
-  {text: 'cantar LALALAL', completed: false},
-  {text: 'Cortar tomate', completed: true},
-  {text: 'Usar estados derivados', completed: true},
-]
+// const defaultTodos = [
+//   {text: 'Cortar cebolla', completed: true},
+//   {text: 'Tomar el curso de Intro a React.js', completed: false},
+//   {text: 'Llorar con la llorona', completed: false},
+//   {text: 'cantar LALALAL', completed: false},
+//   {text: 'Cortar tomate', completed: true},
+//   {text: 'Usar estados derivados', completed: true},
+// ]
+
+// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
+// localStorage.removeItem('TODOS_V1');
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos)
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  let parseTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parseTodos = [];
+  } else {
+    parseTodos = JSON.parse(localStorageTodos);
+  }
+
+  const [todos, setTodos] = React.useState(parseTodos);
   const [searchValue, setSearchValue] = React.useState('');
-  console.log('Los usuarios buscan tood de ' + searchValue);
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -28,8 +40,30 @@ function App() {
       const searchText = searchValue.toLowerCase()
       return todoText.includes(searchText)
     }
-  )
-  console.log(SearchedTodos);
+  );
+
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+    setTodos(newTodos);
+  }
+  
+  const completeTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    );
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+    saveTodos(newTodos);
+  }
+
+  const deleteTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    );
+    newTodos.splice(todoIndex, 1);
+    saveTodos(newTodos);
+  }
 
   return (
     <>
@@ -47,7 +81,10 @@ function App() {
           <TodoItem 
             key={todo.text}
             text={todo.text}
-            completed={todo.completed} />
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
         ))}
       </TodoList>
       
