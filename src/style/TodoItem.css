@@ -1,52 +1,42 @@
 .TodoItem {
-    display: flex;
-    background-color: var(--color-white);
-    border-radius: var(--border-radius);
-    margin-bottom: 24px;
-    box-shadow: var(--box-shadow-general);
-    position: relative;
+  display: flex;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  margin-bottom: 24px;
+  box-shadow: var(--box-shadow-general);
+  position: relative;
 }
 
 .TodoItem:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .TodoItem-text {
-    flex-grow: 1;
-    color: var(--color-black-font);
-    font-size: var(--font-size-regular);
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  flex-grow: 1;
+  color: var(--color-black-font);
+  font-size: var(--font-size-regular);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
 }
 
-.TodoItem-Icon__check {
-    display: grid;
-    place-content: center;
-    padding: 0 22px 0 10px;
-    font-weight: 900;
-    font-size: 25px;
+.TodoItem-Icon__container-check {
+  display: grid;
+  place-content: center;
+  padding: 0 24px;
+  font-weight: 900;
+  font-size: 25px;
 }
 
-.TodoItem-Icon__delete {
-    flex-basis: 12px;
-    position: absolute;
-    right: 10px;
-    top: -10px;
-    font-weight: 900;
-    font-size: 30px;
-    line-height: 0.7;
-}
-
-.TodoItem-Icon__delete:hover {
-    color: var(--color-red);
-    cursor: pointer;
-}
-
-.TodoItem-Icon__check--completed {
-    color: var(--color-green);
+.TodoItem-Icon__container-delete {
+  flex-basis: 12px;
+  position: relative;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 0.7;
 }
 
 .TodoItem-text--completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }

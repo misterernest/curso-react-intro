@@ -1,0 +1,24 @@
+.TodoItem-Icon__svg {
+  width: 24px;
+  height: 24px;
+}
+
+.TodoItem-Icon__svg:hover {
+  cursor: pointer;
+}
+
+.TodoItem-Icon__container-delete .TodoItem-Icon__svg {
+  color: var(--color-icon-base);
+  position: relative;
+  right: 10px;
+  top: -10px;
+}
+
+.TodoItem-Icon__container-delete:hover .TodoItem-Icon__svg {
+  fill: var(--color-icon-delete);
+}
+
+.TodoItem-Icon__container-check .TodoItem-Icon__svg:hover {
+  fill: var(--color-icon-check-hover);
+  transition: .3s ease;
+}

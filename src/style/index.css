@@ -25,7 +25,11 @@
   /* Color general element */
   --color-background: var(--color-ligth-gray);
   --box-shadow-general: 1px 2px 20px 0px var(--color-gray-shadow);
-  --color-black-font: var(var(--color-black-1);)
+  --color-black-font: var(--color-black-1);
+  --color-icon-check-completed: var(--color-green);
+  --color-icon-check-hover: var(--color-ligth-blue);
+  --color-icon-delete: var(--color-red);
+  --color-icon-base: var(--color-gray);
 }
 
 body {
