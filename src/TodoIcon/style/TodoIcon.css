@@ -8,7 +8,7 @@
 }
 
 .TodoItem-Icon__container-delete .TodoItem-Icon__svg {
-  color: var(--color-icon-base);
+  fill: var(--color-icon-base);
   position: relative;
   right: 10px;
   top: -10px;

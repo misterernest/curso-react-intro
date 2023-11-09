@@ -17,7 +17,7 @@
   font-size: var(--font-size-regular);
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1;
   text-align: left;
 }
 

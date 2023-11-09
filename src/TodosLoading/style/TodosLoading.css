@@ -1,0 +1,48 @@
+.TodoItem--loading {
+  --fill-svg: #7c7c7c6b;
+}
+
+.TodoItem--loading .TodoItem-Icon__container-check,
+.TodoItem--loading .TodoItem-Icon__container-delete {
+  background-color: transparent;
+  fill: #7c7c7c6b;
+}
+
+.TodoItem--loading {
+  background: linear-gradient(90deg, rgba(250, 250, 250, 1), rgb(200, 199, 199));
+  background-size: 400% 400%;
+  animation: loadingAnimation 3s ease-in-out infinite;
+  height: 54px
+}
+
+@keyframes loadingAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.TodoItem--loading .TodoItem-text {
+  color: transparent;
+  width: 0;;
+}
+
+.TodoItem--loading .TodoItem-Icon__container-delete .TodoItem-Icon__svg,
+.TodoItem--loading .TodoItem-Icon__container-check .TodoItem-Icon__svg {
+  fill: transparent;
+  background: linear-gradient(90deg, rgba(250, 250, 250, 1), rgb(200, 199, 199));
+  background-size: 400% 400%;
+  padding: 3px;
+  border-radius: 50px;
+}
+
+.TodoItem--loading .TodoItem-Icon__container-delete:hover .TodoItem-Icon__svg,
+.TodoItem--loading .TodoItem-Icon__container-check .TodoItem-Icon__svg:hover {
+  pointer-events: none;
+  cursor: inherit;
+}
