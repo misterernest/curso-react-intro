@@ -2,22 +2,27 @@ import React from 'react';
 import { useLocalStorage  } from './useLocalStorage';
 import { AppUI } from './AppUI';
 
-// crea un localStorage de pruebas, mientras implemento el crear tarea
-// const defaultTodos = [
-//   {text: 'Cortar cebolla', completed: true},
-//   {text: 'Tomar el curso de Intro a React.js', completed: false},
-//   {text: 'Llorar con la llorona', completed: false},
-//   {text: 'cantar LALALAL', completed: false},
-//   {text: 'Cortar tomate', completed: true},
-//   {text: 'Usar estados derivados', completed: true},
-// ]
+/* localStorage.removeItem('TODOS_V1');
+//crea un localStorage de pruebas, mientras implemento el crear tarea
+const defaultTodos = [
+  {text: 'Cortar cebolla', completed: true},
+  {text: 'Tomar el curso de Intro a React.js', completed: false},
+  {text: 'Llorar con la llorona', completed: false},
+  {text: 'cantar LALALAL', completed: false},
+  {text: 'Cortar tomate', completed: true},
+  {text: 'Usar estados derivados', completed: true},
+]
 
-// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
-// localStorage.removeItem('TODOS_V1');
+localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos)); */
 
 function App() {
   
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error
+  } = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -51,6 +56,8 @@ function App() {
 
   return(
     <AppUI
+    loading={ loading }
+    error={ error }
     completedTodos={completedTodos}
     totalTodos={totalTodos}
     searchValue={searchValue}
