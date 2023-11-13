@@ -41,11 +41,13 @@ function AppUI() {
           />
         ))}
       </TodoList>
-      <CreateTodoButton />
+      <CreateTodoButton
+        setOpenModal={setOpenModal}
+      />
 
       {openModal && (
         <Modal>
-          {/* Agrega Modal */}  
+          MODAL  
         </Modal> 
       )}
     </>
