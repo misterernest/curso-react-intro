@@ -5,9 +5,7 @@ function CreateTodoButton() {
         className="CreateTodoButton"
         onClick={
           (event) => {
-            console.log('click ++');
-            console.log(event)
-            console.log(event.target)
+            /* Event */
           }
         }>+</button>
     )

@@ -7,41 +7,47 @@ import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
 import { CreateTodoButton } from '../CreateTodoButton/';
+import { Modal } from '../Modal';
 import { TodoContext } from '../TodoContext';
 
 function AppUI() {
+
+  const {
+    loading,
+    error,
+    SearchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal
+  } = React.useContext( TodoContext );
+
   return (
     <>
       <TodoCounter />
       <TodoSearch />
+      <TodoList>
+        {loading && <TodosLoading />}
+        {error && <TodosError />}
+        {(!loading && SearchedTodos.length === 0)  && <EmptyTodos />}
+        
+        {SearchedTodos.map(todo => (
+          <TodoItem 
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        ))}
+      </TodoList>
+      <CreateTodoButton />
 
-      <TodoContext.Consumer>
-        {({
-          loading,
-          error,
-          SearchedTodos,
-          completeTodo,
-          deleteTodo,
-        }) => (
-          <TodoList>
-            {loading && <TodosLoading />}
-            {error && <TodosError />}
-            {(!loading && SearchedTodos.length === 0)  && <EmptyTodos />}
-            
-            {SearchedTodos.map(todo => (
-              <TodoItem 
-                key={todo.text}
-                text={todo.text}
-                completed={todo.completed}
-                onComplete={() => completeTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
-              />
-            ))}
-          </TodoList>
-        )}
-      </TodoContext.Consumer>
-      
-      <CreateTodoButton />  
+      {openModal && (
+        <Modal>
+          {/* Agrega Modal */}  
+        </Modal> 
+      )}
     </>
   );
 }
