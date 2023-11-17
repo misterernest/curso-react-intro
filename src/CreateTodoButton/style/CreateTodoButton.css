@@ -5,20 +5,29 @@
   border: 75px;
   color: white;
   height: 64px;
-  left: 89%;
+  right: 5%;
   line-height: 1;
   font-size: 64px;
   font-weight: 900;
   padding: 0;
-  position: sticky;
+  position: fixed;
   width: 64px;
   transform: rotate(0);
   transition: .3s ease;
   z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .CreateTodoButton:hover {
   transform: rotate(90deg);
   transition: .3s ease;
+}
+
+@media screen and (min-width: 768px) {
+  .CreateTodoButton {
+    right: calc((100vw / 2) - (768px / 2));
+  }
 }
